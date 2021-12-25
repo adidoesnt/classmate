@@ -6,7 +6,6 @@ function MyModules() {
     const modulesContext = useContext(MyModulesContext);
     return <section>
         <h1>Enrolled Modules</h1>
-        {console.log(modulesContext.myModules)}
         <ModuleList modules = {modulesContext.myModules}/>
     </section>
 }
