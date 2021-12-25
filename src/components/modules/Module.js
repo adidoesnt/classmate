@@ -1,6 +1,24 @@
 import ModuleCard from "../interface/moduleCard";
+import {useContext} from 'react';
+import MyModulesContext from '../../store/myModulesContext';
 
 function Module(props) {
+    const enrolledContext = useContext(MyModulesContext);
+    const moduleSelected = enrolledContext.moduleEnrolled(props.code);
+
+    function toggleEnrolmentHandler() {
+        if(moduleSelected) {
+            enrolledContext.dropModule(props.code);
+        } else {
+            enrolledContext.enrolModule({
+                code: props.code,
+                title: props.title,
+                description: props.description,
+                mcs: props.mcs
+            });
+        }
+    }
+
     return <li>
         <ModuleCard>
             <div>
@@ -11,7 +29,9 @@ function Module(props) {
                 <p>{props.description}</p>
             </div>
             <div>
-                <button>Enrol</button>
+                <button onClick = {toggleEnrolmentHandler}>{
+                    moduleSelected ? 'Drop Module' : 'Enrol'
+                }</button>
             </div>
         </ModuleCard>
     </li>

@@ -15,7 +15,6 @@ function AllModules() {
             id: key,
             ...data[key]
           };
-
           temp.push(module)
         }
         setModules(temp);
