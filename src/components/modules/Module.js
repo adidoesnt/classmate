@@ -11,10 +11,10 @@ function Module(props) {
             enrolledContext.dropModule(props.code);
         } else {
             enrolledContext.enrolModule({
-                code: props.code,
+                moduleCode: props.code,
                 title: props.title,
                 description: props.description,
-                mcs: props.mcs
+                moduleCredit: props.mcs
             });
         }
     }
@@ -30,7 +30,7 @@ function Module(props) {
             </div>
             <div>
                 <button onClick = {toggleEnrolmentHandler}>{
-                    moduleSelected ? 'Drop Module' : 'Enrol'
+                    moduleSelected ? 'Drop' : 'Enrol'
                 }</button>
             </div>
         </ModuleCard>

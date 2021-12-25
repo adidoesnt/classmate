@@ -23,12 +23,12 @@ export function MyModulesContextProvider(props) {
 
     function dropModuleHandler(moduleCode) {
         setEnrolledModules((latestEnrolledModules)=>{
-            return latestEnrolledModules.filter(module => moduleCode !== module.code);
+            return latestEnrolledModules.filter(module => moduleCode !== module.moduleCode);
         });
     }
 
     function moduleEnrolledHandler(moduleCode) {
-        return enrolledModules.some(module => module.code === moduleCode);
+        return enrolledModules.some(module => module.moduleCode === moduleCode);
     }
 
     return <MyModulesContext.Provider value = {context}>
