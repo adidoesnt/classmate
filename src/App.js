@@ -6,6 +6,8 @@ import Layout from './components/layout/Layout';
 import Signup from './components/login/Signup';
 import Login from './components/login/Login';
 import {AuthProvider} from './store/AuthContext';
+import Profile from './pages/Profile';
+import PrivateRoute from './pages/PrivateRoute';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -16,7 +18,12 @@ function App() {
             <Route path='/' element={<Login/>}/>
             <Route path='/new' element={<Signup/>}/>
             <Route path='/all' element={<AllModules/>}/>
-            <Route path='/me' element={<MyModules/>}/>
+            <Route path='/me' element={<PrivateRoute/>}>
+              <Route exact path = '/me' element = {<MyModules/>}/>
+            </Route>
+            <Route path='/profile' element={<PrivateRoute/>}>
+              <Route exact path = '/profile' element = {<Profile/>}/>
+            </Route>
         </Routes> 
       </Layout>
     </AuthProvider>
