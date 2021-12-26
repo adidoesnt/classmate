@@ -22,3 +22,19 @@ Runs the app in the development mode.\
 If your browser is not launched automaticaly, open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.
+
+## Extensions
+
+Below are some extensions I would like to implement given more time.
+
+### Search
+This feature would allow modules (courses) to be searched based on title or module code. This could be implemented through the use of a react hook like useState.
+
+### Filter
+This would filter modules based on the department or faculty that they are offered by. This could be implemented through the use of a react hook like useState.
+
+### Saving
+Most importantly, this would restore the modules selected during a user's previous sessions. The data would be loaded upon login, via API calls to the Firebase backend.
+
+### Credit Counter
+This would keep track of the total credits a user's selection of modules (courses) would yield. Additionally, a warning would be displayed when the credits go above a certain threshold (usually 24 credits). This can be implemented quite simply, as a the credits yielded by a module are stored in the module entry in a user's module array. The credits could be added up to find the total. More intuitively, since most modules are 4 credits, the warning could be displayed when a user selects more than 6 modules. The count is already stored in the current implementation, so this would be a simpler implementation.
