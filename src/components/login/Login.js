@@ -17,7 +17,7 @@ function Login() {
         try {
             setLoading(true);
             await login(emailRef.current.value, psswdRef.current.value);
-            navigate('/me');
+            navigate('/profile');
         } catch {
             return setError('Sign in failed.')
         }
