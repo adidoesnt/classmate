@@ -1,23 +1,24 @@
 import {Link} from 'react-router-dom';
+import {Navbar, Nav} from 'react-bootstrap';
 
 function Navigator() {
     return <header>
-        <div>
-            <h1>Classmate</h1>
-        </div>
-        <nav>
-            <ul>
-                <li>
-                    <Link to ='/profile'>Profile</Link>
-                </li>
-                <li>
-                    <Link to = '/all'>All Modules</Link>
-                </li>
-                <li>
-                    <Link to = '/me'>My Modules</Link>
-                </li>
-            </ul>
-        </nav>
+        <Navbar bg='light' expand='lg'>
+            <Navbar.Brand className='px-5'><h1>Classmate</h1></Navbar.Brand>
+               <Nav className='ms-auto px-5'>
+                    <ul>
+                        <li className='p-2'>
+                            <Link to ='/profile'>Profile</Link>
+                        </li>
+                        <li className='p-2'>
+                            <Link to = '/all'>All Modules</Link>
+                        </li>
+                        <li className='p-2'>
+                            <Link to = '/me'>My Modules</Link>
+                        </li>
+                    </ul>
+                </Nav> 
+        </Navbar>
     </header>
 }
 
