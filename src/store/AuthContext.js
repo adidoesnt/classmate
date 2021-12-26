@@ -23,6 +23,10 @@ export function AuthProvider(props){
         return auth.signOut();
     }
 
+    function reset(email) {
+        return auth.sendPasswordResetEmail(email);
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user);
@@ -35,7 +39,8 @@ export function AuthProvider(props){
         currentUser,
         signup,
         login,
-        logout
+        logout,
+        reset
     }
 
     return <AuthContext.Provider value = {value}>
