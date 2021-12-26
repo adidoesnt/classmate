@@ -1,6 +1,7 @@
 import {Alert, Form, Button, Card} from 'react-bootstrap';
 import {useRef, useState} from 'react';
 import {useAuth} from '../../store/AuthContext';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Signup() {
     const emailRef = useRef();
@@ -9,6 +10,7 @@ function Signup() {
     const {signup} = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     async function submissionHandler(event) {
         event.preventDefault();
@@ -18,6 +20,7 @@ function Signup() {
         try {
             setLoading(true);
             await signup(emailRef.current.value, psswdRef.current.value);
+            navigate('/');
         } catch {
             return setError('Sign up failed.')
         }
@@ -46,7 +49,7 @@ function Signup() {
                 </Form>
             </Card.Body>
         </Card>
-        <div>Already have an account? Log in</div>
+        <div>Already have an account? <Link to='/'>Log in.</Link></div>
     </div>
 }
 
