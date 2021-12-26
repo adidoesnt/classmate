@@ -1,10 +1,18 @@
 import {Form, Button, Card} from 'react-bootstrap';
 import {useRef} from 'react';
+import {useAuth} from '../../store/AuthContext';
 
 function Signup() {
     const emailRef = useRef();
     const psswdRef = useRef();
     const psswdCfmRef = useRef();
+    const {signup} = useAuth();
+
+    function submissionHandler(event) {
+        event.preventDefault();
+        signup(emailRef.current.value, psswdRef.current.value);
+    }
+
     return <div>
         <Card>
             <Card.Body>
