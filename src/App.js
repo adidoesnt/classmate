@@ -4,6 +4,7 @@ import AllModules from './pages/AllModules';
 import MyModules from './pages/MyModules';
 import Layout from './components/layout/Layout';
 import Signup from './components/login/Signup';
+import Login from './components/login/Login';
 import {AuthProvider} from './store/AuthContext';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,7 +13,8 @@ function App() {
     <AuthProvider>
       <Layout>
         <Routes>
-            <Route path='/' element={<Signup/>}/>
+            <Route path='/' element={<Login/>}/>
+            <Route path='/new' element={<Signup/>}/>
             <Route path='/all' element={<AllModules/>}/>
             <Route path='/me' element={<MyModules/>}/>
         </Routes> 

@@ -1,5 +1,5 @@
-import {Form, Button, Card} from 'react-bootstrap';
-import {useRef} from 'react';
+import {Alert, Form, Button, Card} from 'react-bootstrap';
+import {useRef, useState} from 'react';
 import {useAuth} from '../../store/AuthContext';
 
 function Signup() {
@@ -7,17 +7,29 @@ function Signup() {
     const psswdRef = useRef();
     const psswdCfmRef = useRef();
     const {signup} = useAuth();
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    function submissionHandler(event) {
+    async function submissionHandler(event) {
         event.preventDefault();
-        signup(emailRef.current.value, psswdRef.current.value);
+        if(psswdRef.current.value !== psswdCfmRef.current.value){
+            return setError('Passwords entered do not match.');
+        }
+        try {
+            setLoading(true);
+            await signup(emailRef.current.value, psswdRef.current.value);
+        } catch {
+            return setError('Sign up failed.')
+        }
+        setLoading(false);
     }
 
     return <div>
         <Card>
             <Card.Body>
                 <h2>Sign Up</h2>
-                <Form>
+                {error && <Alert variant='danger'>{error}</Alert>}
+                <Form onSubmit={submissionHandler}>
                     <Form.Group id='email'>
                         <Form.Label>Email</Form.Label>
                         <Form.Control type='email' ref={emailRef} required/>
@@ -30,7 +42,7 @@ function Signup() {
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control type='password' ref={psswdCfmRef} required/>
                     </Form.Group>
-                    <Button type='submit'>Sign up</Button>
+                    <Button disabled={loading} type='submit'>Sign up</Button>
                 </Form>
             </Card.Body>
         </Card>
