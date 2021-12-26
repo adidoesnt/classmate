@@ -8,6 +8,9 @@ function Navigator() {
         <nav>
             <ul>
                 <li>
+                    <Link to ='/profile'>Profile</Link>
+                </li>
+                <li>
                     <Link to = '/all'>All Modules</Link>
                 </li>
                 <li>

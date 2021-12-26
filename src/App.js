@@ -8,6 +8,7 @@ import Login from './components/login/Login';
 import {AuthProvider} from './store/AuthContext';
 import Profile from './pages/Profile';
 import PrivateRoute from './pages/PrivateRoute';
+import ForgotPassword from './pages/ForgotPassword';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path='/profile' element={<PrivateRoute/>}>
               <Route exact path = '/profile' element = {<Profile/>}/>
             </Route>
+            <Route path='reset' element={<ForgotPassword/>}/>
         </Routes> 
       </Layout>
     </AuthProvider>

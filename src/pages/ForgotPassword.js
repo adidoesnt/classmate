@@ -1,25 +1,25 @@
 import {Alert, Form, Button, Card} from 'react-bootstrap';
 import {useRef, useState} from 'react';
-import {useAuth} from '../../store/AuthContext';
-import {Link, useNavigate} from 'react-router-dom';
+import {useAuth} from '../store/AuthContext'
+import {Link} from 'react-router-dom';
 
-function Login() {
+function ForgotPassword() {
     const emailRef = useRef();
-    const psswdRef = useRef();
-    const {login} = useAuth();
+    const {reset} = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+    const [message, setMessage] = useState('');
 
     async function submissionHandler(event) {
         event.preventDefault();
         
         try {
+            setMessage('');
             setLoading(true);
-            await login(emailRef.current.value, psswdRef.current.value);
-            navigate('/profile');
+            await reset(emailRef.current.value);
+            setMessage('Check your email for further instructions.');
         } catch {
-            return setError('Sign in failed.')
+            return setError('Password reset failed.')
         }
         setLoading(false);
     }
@@ -27,21 +27,18 @@ function Login() {
     return <div>
         <Card>
             <Card.Body>
-                <h2>Log In</h2>
+                <h2>Forgot Password</h2>
                 {error && <Alert variant='danger'>{error}</Alert>}
+                {message && <Alert variant='success'>{message}</Alert>}
                 <Form onSubmit={submissionHandler}>
                     <Form.Group id='email'>
                         <Form.Label>Email</Form.Label>
                         <Form.Control type='email' ref={emailRef} required/>
                     </Form.Group>
-                    <Form.Group id='psswd'>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type='password' ref={psswdRef} required/>
-                    </Form.Group>
-                    <Button disabled={loading} type='submit'>Login</Button>
+                    <Button disabled={loading} type='submit'>Reset Password</Button>
                 </Form>
                 <div>
-                    <Link to='/reset'>Forgot password?</Link>
+                    <Link to='/'>Log in</Link>
                 </div>
             </Card.Body>
         </Card>
@@ -49,4 +46,4 @@ function Login() {
     </div>
 }
 
-export default Login;
+export default ForgotPassword;
