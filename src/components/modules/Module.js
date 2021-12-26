@@ -1,6 +1,7 @@
 import ModuleCard from "../interface/moduleCard";
 import {useContext} from 'react';
 import MyModulesContext from '../../store/myModulesContext';
+import {Button} from 'react-bootstrap';
 
 function Module(props) {
     const enrolledContext = useContext(MyModulesContext);
@@ -29,9 +30,9 @@ function Module(props) {
                 <p>{props.description}</p>
             </div>
             <div>
-                <button onClick = {toggleEnrolmentHandler}>{
+                <Button onClick = {toggleEnrolmentHandler}>{
                     moduleSelected ? 'Drop' : 'Enrol'
-                }</button>
+                }</Button>
             </div>
         </ModuleCard>
     </li>

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 function Navigator() {
     return <header>
         <div>
-            Navigator
+            <h1>Classmate</h1>
         </div>
         <nav>
             <ul>
