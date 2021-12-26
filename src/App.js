@@ -9,7 +9,7 @@ import {AuthProvider} from './store/AuthContext';
 import Profile from './pages/Profile';
 import PrivateRoute from './pages/PrivateRoute';
 import ForgotPassword from './pages/ForgotPassword';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

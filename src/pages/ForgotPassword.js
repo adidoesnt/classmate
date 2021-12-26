@@ -27,7 +27,7 @@ function ForgotPassword() {
     return <div>
         <Card>
             <Card.Body>
-                <h2>Forgot Password</h2>
+                <h2 className='text-center mb-4'>Forgot Password</h2>
                 {error && <Alert variant='danger'>{error}</Alert>}
                 {message && <Alert variant='success'>{message}</Alert>}
                 <Form onSubmit={submissionHandler}>
@@ -35,7 +35,7 @@ function ForgotPassword() {
                         <Form.Label>Email</Form.Label>
                         <Form.Control type='email' ref={emailRef} required/>
                     </Form.Group>
-                    <Button disabled={loading} type='submit'>Reset Password</Button>
+                    <Button className='w-100' disabled={loading} type='submit'>Reset Password</Button>
                 </Form>
                 <div>
                     <Link to='/'>Log in</Link>
