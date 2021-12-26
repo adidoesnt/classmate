@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 function MyModules() {
     const modulesContext = useContext(MyModulesContext);
-    const noModules = modulesContext.totalModules == 0;
+    const noModules = modulesContext.totalModules === 0;
     return !noModules ? (<section>
         <h1 className='text-center mb-4'>Enrolled Modules</h1>
         <ModuleList modules = {modulesContext.myModules}/>
