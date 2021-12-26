@@ -8,7 +8,7 @@ function Navigator() {
         <nav>
             <ul>
                 <li>
-                    <Link to = '/'>All Modules</Link>
+                    <Link to = '/all'>All Modules</Link>
                 </li>
                 <li>
                     <Link to = '/me'>My Modules</Link>
