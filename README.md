@@ -23,6 +23,9 @@ If your browser is not launched automaticaly, open [http://localhost:3000](http:
 
 The page will reload when you make changes.
 
+## Authentication
+To view pages such 'Profile' or 'My Modules', a user must be logged in, and will be prompted to do so when attempting to access these pages. If you do not have an account, you can sign up using any email and password, and subsequently use these credentials to log in.
+
 ## Extensions
 
 Below are some extensions I would like to implement given more time.
